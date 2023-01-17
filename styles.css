@@ -1,13 +1,15 @@
 * {
-    padding: 5px;
-    margin: 5px;
+    padding: 0px;
+    margin: 0px;
 }
 div {
     height:800px;
-    width: 600px;
+    max-width: 600px;
     border: 2px solid black;
     margin: auto;
     background-color: pink;
+    display: block;
+    overflow:auto;
 }
 
 #ball {
@@ -15,4 +17,8 @@ div {
     width: 20px;
     background-color: blue;
     border-radius: 50%;
+    display:block;
+    position: 'absoulte';
+    
+    /*z-index: 100000;*/
 }
