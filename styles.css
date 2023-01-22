@@ -2,14 +2,15 @@
     padding: 0px;
     margin: 0px;
 }
-div {
-    height:800px;
-    max-width: 600px;
+/*game container */
+#game {
+    height:1000px;
+    width: 500px;
     border: 2px solid black;
     margin: auto;
     background-color: pink;
     display: block;
-    overflow:auto;
+    position: absolute;
 }
 
 #ball {
@@ -17,8 +18,23 @@ div {
     width: 20px;
     background-color: blue;
     border-radius: 50%;
-    display:block;
-    position: 'absoulte';
-    
-    /*z-index: 100000;*/
+    top:440px;
+    left:200px;
+    position: relative;
+}
+.block {
+    width:500px;
+    height:20px;
+    background-color: black;
+    position:relative;
+    top: 100px;
+    margin-top: -20px;
+}
+.hole {
+    width: 40px;
+    height: 20px;
+    background-color: white;
+    position: relative;
+    top: 100px;
+    margin-top: -20px;
 }
