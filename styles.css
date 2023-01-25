@@ -4,7 +4,7 @@
 }
 /*game container */
 #game {
-    height:1000px;
+    height:600px;
     width: 500px;
     border: 2px solid black;
     margin: auto;
@@ -29,6 +29,22 @@
     margin-top: -20px;
 }
 .hole {
+    width: 40px;
+    height: 20px;
+    background-color: white;
+    position: relative;
+    top: 100px;
+    margin-top: -20px;
+}
+.lastBlock {
+    width:500px;
+    height:20px;
+    background-color: black;
+    position:relative;
+    top: 100px;
+    margin-top: -20px;
+}
+.lastHole {
     width: 40px;
     height: 20px;
     background-color: white;

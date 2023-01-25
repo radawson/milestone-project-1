@@ -12,8 +12,8 @@ Attempt to make falling game
 need to create a ball
 ball needs to move left and right
 need to make sure the ball stays inside game
-need to make lines that loops 
-need ball to not fall through line
+need to make lines that loops continously 
+need ball to not fall through line/ball need to land on line
 need ball to only fall through gaps
 need to create lines
 lines need to move up at slow speed 
