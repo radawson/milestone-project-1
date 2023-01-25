@@ -4,8 +4,6 @@ let ballTop = 0;
 let ballLeft = 0;
 var game = document.getElementById("game"); left = 0;
 var counter = 0;
-//let getElementsByClassName=("hole");
-//let getElementsByClassName1=("hole1");
 var currentBlocks = [];
 
 let block = document.createElement("div"); //creates new div
@@ -28,6 +26,8 @@ let lastHoleTop = getComputedStyle(hole).getPropertyValue("top");
 
         var random = Math.floor(Math.random() * 360); //makes holes in random places
         hole.style.left = random + "px"; //styles holes in random spots
+
+        hole.getElementsByClassName("hole");
 
         game.appendChild(block); //adds lines to dom
         game.appendChild(hole); //adds gaps to the line
@@ -57,6 +57,8 @@ let lastHoleTop1 = getComputedStyle(hole1).getPropertyValue("top");
         var random = Math.floor(Math.random() * 300); //makes holes in random places
         hole1.style.left = random + "px"; //styles holes in random spots
 
+        hole1.getElementsByClassName("hole1");
+        
         game.appendChild(block1); //adds lines to dom
         game.appendChild(hole1); //adds gaps to the line
     }
