@@ -1,9 +1,38 @@
-var ball = document.getElementById("ball");
+// Canvas elements
+const canvas = document.getElementById("ball-court");
+const ctx = canvas.getContext("2d");
+
+// Ball variables
+ballX = 10;
+ballY = 10;
+
+function renderObjects() {
+    ctx.globalCompositeOperation = "destination-over";
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // clear canvas
+    ball = new Image();
+    ball.onload = () => {
+        ctx.drawImage(ball, ballX, ballY);
+    };
+    ballImg.src = 'ball.png';
+}
+
+
+function gameloop() {
+    let i = 0;
+    while (true)
+        if (i > 100) {
+            break
+        }
+    requestAnimationFrame(renderObjects());
+    i++;
+}
+
+gameloop();
+
+/*
 var ballTop = 0;
 var ballLeft = 0;
 var game = document.getElementById("game");
-var left = 0;
-var counter = 0;
 //var block = document.getElementsByClassName("block");
 var hole = document.getElementsByClassName("hole");
 var currentBlocks = [];
@@ -41,14 +70,6 @@ function createBlocks() {
 
 //code works to move ball left and right but goes off page 6 to 24
 let moveBy = 10;
-window.addEventListener("load", function () {
-    var ball = document.getElementById("ball");
-    var game = document.getElementById("game");
-    ball.style.position = 'relative';
-    ball.style.left = 0;
-    ball.style.top = 0;
-
-});
 document.addEventListener('keydown', (e) => {
     switch (e.key) {
         case 'ArrowLeft':
@@ -62,21 +83,12 @@ document.addEventListener('keydown', (e) => {
 
 createBlocks()
 //function to make more lines and with holes
-setInterval(async function () {
-    await delay(8000);
-    if (parseInt(ball.style.top) < 1000) {
-        ball.style.top = parseInt(ball.style.top) + moveBy + 'px';
-    } else {
-        ball.style.top = '1000px';
-    }
 
-}, 1)
 //function to scroll lines up continously when left or right arrow key is hit
 
 //function to drop ball unless on platform
-window.addEventListener("load", function () {
 
-})
 //make score count how many lines the ball went through
 //make game stop when ball is no longer on screen
 //display score
+*/
