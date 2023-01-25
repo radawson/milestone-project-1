@@ -1,82 +1,71 @@
-var ball = document.getElementById("ball");
-var ballTop = 0;
-var ballLeft = 0;
-var game = document.getElementById("game");
-var left = 0;
-var counter = 0;
-//var block = document.getElementsByClassName("block");
-var hole = document.getElementsByClassName("hole");
-var currentBlocks = [];
-var block = document.createElement("div"); //creates new div
-var hole = document.createElement("div"); //creates new div
-
-const delay = ms => new Promise(res => setTimeout(res, ms));
-
-function createBlocks() {
-    if (counter > 0) {
-
-        let lastBlock = document.getElementById("block" + (counter - 1));
-        let lastHole = document.getElementById("block" + (counter - 1));
-
-        let lastBlockTop = window.getComputedStyle(lastBlock).getPropertyValue("top");
-        let lastHoleTop = window.getComputedStyle(lastHole).getPropertyValue("top");
-
-        block.setAttribute("class", "block"); //sets class 
-        hole.setAttribute("class", "hole"); //sets class 
-        block.setAttribute("id", "block" + counter); //sets id 
-        hole.setAttribute("id", "hole" + counter); //sets id 
-        block.style.top = lastBlockTop + 100 + "px"; //styles new div and makes it equal to new varible
-        hole.style.top = lastHoleTop + 100 + "px"; //styles new div and makes it equal to new varible
-
-        var random = Math.floor(Math.random() * 360); //makes holes in random places
-        hole.style.left = random + "px"; //styles holes in random spots
-
-        game.appendChild(block); //adds lines to dom
-        game.appendChild(hole); //adds gaps to the line
+// create coordinate object
+class coordinate {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
     }
-
-    counter++; //loops through counter adds more lines
-    currentBlocks.push(counter); // adds blocks at end
 }
 
-//code works to move ball left and right but goes off page 6 to 24
-let moveBy = 10;
-window.addEventListener("load", function () {
-    var ball = document.getElementById("ball");
-    var game = document.getElementById("game");
-    ball.style.position = 'relative';
-    ball.style.left = 0;
-    ball.style.top = 0;
+// start with three walls
+let wall1 = [];
+let wall2 = [];
+let wall3 = [];
 
-});
-document.addEventListener('keydown', (e) => {
-    switch (e.key) {
-        case 'ArrowLeft':
-            ball.style.left = parseInt(ball.style.left) - moveBy + 'px';
-            break;
-        case 'ArrowRight':
-            ball.style.left = parseInt(ball.style.left) + moveBy + 'px';
-            break;
+// build wall function
+function buildWall(wall) {
+    let y = between(40, 960);
+    for (let x = 0; x < 500; x += 20) {
+        wall.push(new coordinate(x, y))
     }
-});
+}
 
-createBlocks()
-//function to make more lines and with holes
-setInterval(async function () {
-    await delay(8000);
-    if (parseInt(ball.style.top) < 1000) {
-        ball.style.top = parseInt(ball.style.top) + moveBy + 'px';
-    } else {
-        ball.style.top = '1000px';
+// draw wall function
+function drawWall(wall) {
+    for (i = 0; i < wall.length; i++) {
+        move(newImage('assets/wall.png')).to(wall[i].x, wall[i].y)
     }
+}
 
-}, 1)
-//function to scroll lines up continously when left or right arrow key is hit
+// initialize walls
+function initialize() {
+    buildWall(wall1);
+    buildWall(wall2);
+    buildWall(wall3);
+    // add random holes
+    // we know our walls are 25 blocks long
+    wall1.splice(between(0,25), 2);
+    wall2.splice(between(0,25), 2);
+    wall3.splice(between(0,25), 2);
+}
 
-//function to drop ball unless on platform
-window.addEventListener("load", function () {
+function render() {
+    drawWall(wall1);
+    drawWall(wall2);
+    drawWall(wall3);
+}
 
-})
-//make score count how many lines the ball went through
-//make game stop when ball is no longer on screen
-//display score
+
+
+// run game
+initialize();
+
+//game loop
+var count = 0;
+setInterval(mainLoop, 1000);
+
+function mainLoop() {
+    render();
+}
+
+
+
+
+
+
+
+// helper functions
+function between(x, y) {
+    return Math.floor(
+        Math.random() * (y - x) + x
+    )
+}
