@@ -10,7 +10,7 @@
     margin: auto;
     background-color: pink;
     display: block;
-    position: absolute;
+    position: relative;;
 }
 
 #ball {
@@ -18,9 +18,7 @@
     width: 20px;
     background-color: blue;
     border-radius: 50%;
-    top:440px;
-    left:200px;
-    position: relative;
+    position: absolute;
 }
 .block {
     width:500px;
