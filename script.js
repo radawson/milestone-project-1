@@ -65,10 +65,10 @@ function initialize() {
     buildWall(wall4, 6);
     // add random holes
     // we know our walls are 25 blocks long
-    wall1.splice(between(0, 24), 2);
-    wall2.splice(between(0, 24), 2);
-    wall3.splice(between(0, 24), 2);
-    wall4.splice(between(0, 24), 2);
+    wall1.splice(between(0, 23), 3);
+    wall2.splice(between(0, 23), 3);
+    wall3.splice(between(0, 23), 3);
+    wall4.splice(between(0, 23), 3);
     renderWalls(); // walls would not need to be rendered more than once at this point
 }
 
