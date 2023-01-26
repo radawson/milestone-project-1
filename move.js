@@ -8,7 +8,8 @@ function move(element) {
         element.style.bottom = bottom + 'px'
     }
 
-    function moveWithArrowKeys(left, bottom, callback) {
+    function moveWithArrowKeys(left, bottom) {
+        // left and bottom are starting positions
         let direction = null;
         let x = left;
         let y = bottom;
@@ -30,11 +31,14 @@ function move(element) {
                 y -= 1
             }
             y -= fallFactor;
-            element.style.left = x + 'px'
-            element.style.bottom = y + 'px'
+            element.style.left = x + 'px';
+            element.style.bottom = y + 'px';
+           if(collision(element) == 1){
+            clearInterval(gameLoop);
+           }
         }
 
-        setInterval(moveCharacter, 1)
+        var gameLoop = setInterval(moveCharacter, 1)
 
         document.addEventListener('keydown', function (e) {
             if (e.repeat) return;
@@ -51,13 +55,23 @@ function move(element) {
             if (e.key === 'ArrowDown') {
                 direction = 'south'
             }
-            //callback(element);
         })
 
         document.addEventListener('keyup', function (e) {
             direction = null;
-            //callback(element);
         })
+    }
+
+    // collision function - could all be in the callback
+    function collision(element) {
+        console.log(element);
+        // first, if the ball gets to the bottom
+        if (element.style.bottom <= 0) {
+            message.innerHTML = "You win!"
+            return 1;
+        } else {
+            return 0;
+        }
     }
 
     return {

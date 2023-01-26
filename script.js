@@ -12,10 +12,10 @@ const message = document.querySelector('#message');
 // range for walls to maintain reasonable space
 // enough for 4 walls
 let wallRange = [
-    40,240,
-    280, 520,
-    560, 800,
-    800, 960
+    40, 240,
+    280, 480,
+    520, 720,
+    760, 940
 ]
 
 // start with three walls
@@ -29,7 +29,7 @@ let ball = new coordinate(between(40, 460), 920);
 
 // build wall function
 function buildWall(wall, index) {
-    let y = between(wallRange[index], wallRange[index +1]);
+    let y = between(wallRange[index], wallRange[index + 1]);
     for (let x = 0; x < 500; x += 20) {
         wall.push(new coordinate(x, y))
     }
@@ -37,19 +37,8 @@ function buildWall(wall, index) {
 
 // draw ball function
 function renderBall() {
-    move(newImage('assets/ball.png')).withArrowKeys(ball.x, ball.y, collision);
+    move(newImage('assets/ball.png')).withArrowKeys(ball.x, ball.y);
 }
-
-// collision function - could all be in the callback
-function collision(element){
-// first, if the ball gets to the bottom
-if (element.style.bottom == 0 ){
-
-}
-
-}
-
-
 
 // draw wall function
 function drawWall(wall) {
@@ -76,10 +65,10 @@ function initialize() {
     buildWall(wall4, 6);
     // add random holes
     // we know our walls are 25 blocks long
-    wall1.splice(between(0, 25), 2);
-    wall2.splice(between(0, 25), 2);
-    wall3.splice(between(0, 25), 2);
-    wall4.splice(between(0, 25), 2);
+    wall1.splice(between(0, 24), 2);
+    wall2.splice(between(0, 24), 2);
+    wall3.splice(between(0, 24), 2);
+    wall4.splice(between(0, 24), 2);
     renderWalls(); // walls would not need to be rendered more than once at this point
 }
 
@@ -89,7 +78,7 @@ var count = 0;
 //setInterval(mainLoop, 800); // if we need a timed game loop for gravity
 
 function mainLoop() {
-    renderBall(); 
+    renderBall();
 }
 
 // run game
