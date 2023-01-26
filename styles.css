@@ -1,14 +1,28 @@
 /*game container */
 #game {
-    height:1000px;
+    height: 1000px;
     width: 500px;
     border: 2px solid black;
     margin: auto;
     background-color: pink;
-    display: flexbox;
-    flex-direction: row;
-    justify-content: space-evenly;
     position: relative;
 }
 
+#menu {
+    display: flex;
+    padding: 20px;
+    height: 600px;
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+}
 
+.float-container {
+    border: 3px solid #fff;
+    padding: 20px;
+}
+
+.float-child {
+    float: left;
+
+} 
