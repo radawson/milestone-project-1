@@ -6,6 +6,14 @@ class coordinate {
     }
 }
 
+// gamespeed controls how fast the ball drops
+// hight is slower
+var gameSpeed = 10;
+
+// width and height of our graphics elements
+let itemHeight = 20;
+let itemWidth = 20;
+
 // get message element for notifications
 const message = document.querySelector('#message');
 
@@ -18,12 +26,15 @@ let wallRange = [
     760, 940
 ]
 
-// start with three walls
-// This could also be an array of arrays
+// start with 4 walls
 let wall1 = [];
 let wall2 = [];
 let wall3 = [];
 let wall4 = [];
+
+// This array has all the walls and lets us iterate them
+// we could simplify the code, but left it this way for clarity
+let walls = [];
 
 let ball = new coordinate(between(40, 460), 920);
 
@@ -33,6 +44,7 @@ function buildWall(wall, index) {
     for (let x = 0; x < 500; x += 20) {
         wall.push(new coordinate(x, y))
     }
+    walls.push(wall);
 }
 
 // draw ball function

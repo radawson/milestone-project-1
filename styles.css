@@ -1,4 +1,13 @@
 /*game container */
+.float-container {
+    border: 3px solid #fff;
+    padding: 20px;
+}
+
+.float-child {
+    float: left;
+} 
+
 #game {
     height: 1000px;
     width: 500px;
@@ -10,19 +19,14 @@
 
 #menu {
     display: flex;
+    flex-direction: column;
     padding: 20px;
     height: 600px;
-    width: 200px;
+    width: 300px;
     justify-content: center;
     align-items: center;
 }
 
-.float-container {
-    border: 3px solid #fff;
-    padding: 20px;
+#reset-btn{
+    display: none;
 }
-
-.float-child {
-    float: left;
-
-} 
