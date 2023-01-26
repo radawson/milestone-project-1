@@ -33,9 +33,9 @@ function move(element) {
             y -= fallFactor;
             element.style.left = x + 'px';
             element.style.bottom = y + 'px';
-           if(collision(element) == 1){
-            clearInterval(gameLoop);
-           }
+            if (collision(element) == 1) {
+                clearInterval(gameLoop);
+            }
         }
 
         var gameLoop = setInterval(moveCharacter, 1)
@@ -64,9 +64,9 @@ function move(element) {
 
     // collision function - could all be in the callback
     function collision(element) {
-        console.log(element);
+        console.log(element.style.bottom);
         // first, if the ball gets to the bottom
-        if (element.style.bottom <= 0) {
+        if (parseInt(element.style.bottom) <= 0) {
             message.innerHTML = "You win!"
             return 1;
         } else {
