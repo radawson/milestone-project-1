@@ -4,68 +4,91 @@ let ballTop = 0;
 let ballLeft = 0;
 var game = document.getElementById("game"); left = 0;
 var counter = 0;
-var currentBlocks = [];
+let currentBlocks = [];
 
 let block = document.createElement("div"); //creates new div
 let hole = document.createElement("div"); //creates new div
-let lastBlock = document.getElementById("block" + (counter - 1));
-let lastHole = document.getElementById("block" + (counter - 1));
-let lastBlockTop = getComputedStyle(block).getPropertyValue("top");
-let lastHoleTop = getComputedStyle(hole).getPropertyValue("top");
-
+    
     function createBlocks() {
 
         block.setAttribute("class", "block"); //sets class 
         hole.setAttribute("class", "hole"); //sets class
-        
-        block.setAttribute("id", "block" + counter); //sets id 
-        hole.setAttribute("id", "hole" + counter); //sets id 
-        
-        block.style.top = lastBlockTop + 100 + "px"; //styles new div and makes it equal to new varible
-        hole.style.top = lastHoleTop + 100 + "px"; //styles new div and makes it equal to new varible
-
+        block.setAttribute("id", "block"); //sets id 
+        hole.setAttribute("id", "hole"); //sets id 
+        block.style.top = block + 100 + "px"; //styles new div and makes it equal to new varible
+        hole.style.top = hole + 100 + "px"; //styles new div and makes it equal to new varible
         var random = Math.floor(Math.random() * 360); //makes holes in random places
         hole.style.left = random + "px"; //styles holes in random spots
-
         hole.getElementsByClassName("hole");
-
         game.appendChild(block); //adds lines to dom
         game.appendChild(hole); //adds gaps to the line
+        counter++;
     
-    }
-
+    };
+    
     createBlocks()
-    
+
 let block1 = document.createElement("div"); //creates new div
 let hole1 = document.createElement("div"); //creates new div
-let lastBlock1 = document.getElementById("block1" + (counter - 1));
-let lastHole1 = document.getElementById("block1" + (counter - 1));
-let lastBlockTop1 = getComputedStyle(block1).getPropertyValue("top");
-let lastHoleTop1 = getComputedStyle(hole1).getPropertyValue("top");    
-    
+       
     function createBlocks1() {
 
         block1.setAttribute("class", "block1"); //sets class 
         hole1.setAttribute("class", "hole1"); //sets class
-        
         block1.setAttribute("id", "block1" + counter); //sets id 
         hole1.setAttribute("id", "hole1" + counter); //sets id 
-        
-        block1.style.top = lastBlockTop1 + 200 + "px"; //styles new div and makes it equal to new varible
-        hole1.style.top = lastHoleTop1 + 200 + "px"; //styles new div and makes it equal to new varible
-
-        var random = Math.floor(Math.random() * 300); //makes holes in random places
+        block1.style.top = block1 + 200 + "px"; //styles new div and makes it equal to new varible
+        hole1.style.top = hole1 + 200 + "px"; //styles new div and makes it equal to new varible
+        var random = Math.floor(Math.random() * 360); //makes holes in random places
         hole1.style.left = random + "px"; //styles holes in random spots
-
         hole1.getElementsByClassName("hole1");
-        
         game.appendChild(block1); //adds lines to dom
         game.appendChild(hole1); //adds gaps to the line
     }
     
     createBlocks1()
 
-//code works to move ball left and right but goes off page 92 to 109
+let block2 = document.createElement("div"); //creates new div
+let hole2 = document.createElement("div"); //creates new div
+       
+    function createBlocks2() {
+
+        block2.setAttribute("class", "block2"); //sets class 
+        hole2.setAttribute("class", "hole2"); //sets class
+        block2.setAttribute("id", "block2" + counter); //sets id 
+        hole2.setAttribute("id", "hole2" + counter); //sets id 
+        block2.style.top = block2 + 200 + "px"; //styles new div and makes it equal to new varible
+        hole2.style.top = hole2 + 200 + "px"; //styles new div and makes it equal to new varible
+        var random = Math.floor(Math.random() * 360); //makes holes in random places
+        hole2.style.left = random + "px"; //styles holes in random spots
+        hole2.getElementsByClassName("hole1");
+        game.appendChild(block2); //adds lines to dom
+        game.appendChild(hole2); //adds gaps to the line
+    }
+    
+    createBlocks2()
+
+let block3 = document.createElement("div"); //creates new div
+let hole3 = document.createElement("div"); //creates new div
+       
+    function createBlocks3() {
+
+        block3.setAttribute("class", "block3"); //sets class 
+        hole3.setAttribute("class", "hole3"); //sets class
+        block3.setAttribute("id", "block3" + counter); //sets id 
+        hole3.setAttribute("id", "hole3" + counter); //sets id 
+        block3.style.top = block3 + 200 + "px"; //styles new div and makes it equal to new varible
+        hole3.style.top = hole3 + 200 + "px"; //styles new div and makes it equal to new varible
+        var random = Math.floor(Math.random() * 360); //makes holes in random places
+        hole3.style.left = random + "px"; //styles holes in random spots
+        hole3.getElementsByClassName("hole3");
+        game.appendChild(block3); //adds lines to dom
+        game.appendChild(hole3); //adds gaps to the line
+    }
+    
+    createBlocks3()
+
+//code works to move ball left and right but goes off page 68 to 86
 let moveBy = 5;
 window.addEventListener("load", function () {
     
@@ -85,13 +108,28 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-//makes ball drop within container start to fall slow then fast/stops in container
+//makes ball drop within container start to fall slow then fast/stops in container line 88 to 97
 const delay = ms => new Promise(res => setTimeout(res, ms));
 setInterval(async function () {
-    await delay(4000);
+    await delay(9000);
     if (parseInt(ball.style.top) < 550) {
         ball.style.top = parseInt(ball.style.top) + moveBy + 'px';
     } else {
         ball.style.top = '580px';
     }
 }, 1)
+
+var blocks = [ block, block1, block2, block3];
+function collisionDetection() {
+    b = blocks; 
+    for (let b = 0; b < blocks.length; b++);
+    if (ball.x > b.x && ball.x < b.x + blocksWidth && ball.y > b.y && ball.y < b.y + blocksHeight) {
+        dy = -dy;
+return stop();
+   // The x position of the ball is greater than the x position of the brick.
+    //The x position of the ball is less than the x position of the brick plus its width.
+    //The y position of the ball is greater than the y position of the brick.
+    //The y position of the ball is less than the y position of the brick plus its height.      
+}
+  collisionDetection()
+}
