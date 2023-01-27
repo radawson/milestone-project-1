@@ -9,14 +9,14 @@ This game is called The Falling Game. You have to move the left and right arrows
 
 
 Attempt to make falling game
-need to create a ball
-ball needs to move left and right
+*need to create a ball
+*ball needs to move left and right
 need to make sure the ball stays inside game
-need to make lines that loops 
-need ball to not fall through line
+need to make lines that loops continously 
+need ball to not fall through line/ball need to land on line
 need ball to only fall through gaps
 need to create lines
 lines need to move up at slow speed 
-need to create hole in lines
+*need to create hole in lines
 if ball moves up and disappear off screen game over
-need to show count/score of how many lines the ball fell through
+need to show count/score of how many lines the ball fell through at end of game

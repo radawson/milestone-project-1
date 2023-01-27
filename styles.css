@@ -4,7 +4,7 @@
 }
 /*game container */
 #game {
-    height:1000px;
+    height:600px;
     width: 500px;
     border: 2px solid black;
     margin: auto;
@@ -34,5 +34,53 @@
     background-color: white;
     position: relative;
     top: 100px;
+    margin-top: -20px;
+}
+.block1 {
+    width:500px;
+    height:20px;
+    background-color: black;
+    position:relative;
+    top: 200px;
+    margin-top: -20px;
+}
+.hole1 {
+    width: 40px;
+    height: 20px;
+    background-color: white;
+    position: relative;
+    top: 200px;
+    margin-top: -20px;
+}
+.block2 {
+    width:500px;
+    height:20px;
+    background-color: black;
+    position:relative;
+    top: 300px;
+    margin-top: -20px;
+}
+.hole2 {
+    width: 40px;
+    height: 20px;
+    background-color: white;
+    position: relative;
+    top: 300px;
+    margin-top: -20px;
+}
+.block3 {
+    width:500px;
+    height:20px;
+    background-color: black;
+    position:relative;
+    top: 400px;
+    margin-top: -20px;
+}
+.hole3 {
+    width: 40px;
+    height: 20px;
+    background-color: white;
+    position: relative;
+    top: 400px;
     margin-top: -20px;
 }
